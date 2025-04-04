@@ -13,7 +13,7 @@ def criptografar_dados(chave, Mensagem):
 def descriptografar_dados(chave, dados_criptografados):
     iv = dados_criptografados[:DES.block_size]  # O IV está nos primeiros 16 bytes
     dados_criptografados = dados_criptografados[DES.block_size:]  # O resto são os dados criptografados
-    cipher = DES.new(chave, DES.MODE_CBC, iv)  # Usando o modo CBC para AES-256
+    cipher = DES.new(chave, DES.MODE_CBC, iv)  
     dados_descriptografados = unpad(cipher.decrypt(dados_criptografados), DES.block_size)  # Removendo o padding
     return dados_descriptografados.decode()
 
